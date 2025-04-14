@@ -1,4 +1,5 @@
 // lib/shopify.ts
+import "@shopify/shopify-api/adapters/node"; // 👈 necesario en Vercel o Node.js
 import { shopifyApi, LATEST_API_VERSION } from "@shopify/shopify-api";
 
 export const shopify = shopifyApi({
