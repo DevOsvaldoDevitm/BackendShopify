@@ -4,7 +4,7 @@ import { shopify } from '../../lib/shopify'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const shop = req.query.shop as string
-
+try{ 
   if (!shop) {
     return res.status(400).send('Falta el parámetro ?shop=...')
   }
@@ -16,6 +16,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     rawRequest: req,
     rawResponse: res,
   })
-
   return res.redirect(authRoute)
+
+} catch (error){
+  console.log('Error en la autenticacion de shopify', error);
+  return res.status(500).send('Error en la autenticacion')
+}
+
 }
