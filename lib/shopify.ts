@@ -9,5 +9,5 @@ export const shopify = shopifyApi({
   hostName: process.env.HOST!.replace(/^https?:\/\//, ''),
   apiVersion: LATEST_API_VERSION,
   isEmbeddedApp: false,
-  sessionStorage: new (require('@shopify/shopify-api').session.MemorySessionStorage)(), // ✅ Esto siempre funciona
+  sessionStorage: undefined, // ✅ Esto siempre funciona
 })
